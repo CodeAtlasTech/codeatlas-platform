@@ -21,6 +21,19 @@ public class CourseService {
         return courseRepository.findAll();
     }
 
+    public Course updateCourse(Long id, Course updatedCourse) {
+
+        Course existingCourse = courseRepository.findById(id)
+                .orElseThrow(() -> new RuntimeException("Course not found"));
+
+        existingCourse.setTitle(updatedCourse.getTitle());
+        existingCourse.setDescription(updatedCourse.getDescription());
+        existingCourse.setCategory(updatedCourse.getCategory());
+
+        return courseRepository.save(existingCourse);
+    }
+
+
     public void deleteCourse(Long id) {
         courseRepository.deleteById(id);
     }

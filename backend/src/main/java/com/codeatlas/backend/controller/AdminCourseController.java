@@ -17,6 +17,14 @@ public class AdminCourseController {
         return courseService.createCourse(course);
     }
 
+    @PutMapping("/{id}")
+    public Course update(@PathVariable Long id,
+                         @RequestBody Course course) {
+
+        return courseService.updateCourse(id, course);
+    }
+
+
     @DeleteMapping("/{id}")
     public String delete(@PathVariable Long id) {
         courseService.deleteCourse(id);
