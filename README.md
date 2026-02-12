@@ -39,10 +39,11 @@ DevOps:
 ## 👨‍💻 Team
 
 Backend Developer: Abhijit Pradhan  
-Frontend Developer: (Friend Name)
+Frontend Developer: Swatita ray Nayak
 
 ---
 
 ## 🎯 Vision
 
 To build India's most structured programming learning platform.
+
