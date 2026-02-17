@@ -4,24 +4,17 @@ import jakarta.persistence.*;
 import lombok.*;
 
 @Entity
-@Table(name = "courses")
+@Table(name = "categories")
 @Getter
 @Setter
 @NoArgsConstructor
 @AllArgsConstructor
 @Builder
-public class Course {
+public class Category {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private Long id;
 
-    private String title;
-
-    @Column(length = 5000)
-    private String description;
-
-    @ManyToOne
-    @JoinColumn(name = "category_id")
-    private Category category;
+    private String name;
 }
