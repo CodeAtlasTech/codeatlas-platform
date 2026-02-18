@@ -1,0 +1,33 @@
+generator client {
+  provider = "prisma-client"
+  output   = "../generated/prisma"
+}
+
+datasource db {
+  provider = "mysql"
+}
+
+model categories {
+  id      BigInt    @id @default(autoincrement())
+  name    String?   @db.VarChar(255)
+  courses courses[]
+}
+
+model courses {
+  id          BigInt      @id @default(autoincrement())
+  category    String?     @db.VarChar(255)
+  description String?     @db.VarChar(5000)
+  title       String?     @db.VarChar(255)
+  category_id BigInt?
+  categories  categories? @relation(fields: [category_id], references: [id], onDelete: NoAction, onUpdate: NoAction, map: "FK72l5dj585nq7i6xxv1vj51lyn")
+
+  @@index([category_id], map: "FK72l5dj585nq7i6xxv1vj51lyn")
+}
+
+model users {
+  id       BigInt  @id @default(autoincrement())
+  email    String? @unique(map: "UK6dotkott2kjsp8vw4d0m25fb7") @db.VarChar(255)
+  name     String? @db.VarChar(255)
+  provider String? @db.VarChar(255)
+  role     String? @db.VarChar(255)
+}
